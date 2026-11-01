@@ -42,7 +42,7 @@ KS_POCKET = (20.0, 27.0)  # rear relief pocket W x H
 
 SPLIT_X  = RACK_W / 2
 
-# Fan power switch: standard 16 mm panel-mount latching push button with 5 V LED
+# Master power switch (UCG-Ultra + fan): standard 16 mm panel-mount latching push button with 5 V LED
 SW_X, SW_Z = 432.0, PANEL_H/2
 SW_HOLE  = 16.3           # 16 mm thread + clearance
 
@@ -213,6 +213,8 @@ FONT = {
  "A": [[(0,0),(0.3,1),(0.6,0)], [(0.12,0.4),(0.48,0.4)]],
  "N": [[(0,0),(0,1),(0.6,0),(0.6,1)]],
  "F": [[(0.6,1),(0,1),(0,0)], [(0,0.52),(0.45,0.52)]],
+ "P": [[(0,0),(0,1),(0.45,1),(0.6,0.88),(0.6,0.62),(0.45,0.5),(0,0.5)]],
+ "R": [[(0,0),(0,1),(0.45,1),(0.6,0.88),(0.6,0.62),(0.45,0.5),(0,0.5)], [(0.3,0.5),(0.6,0)]],
 }
 LBL_H, STROKE, ENGR = 5.5, 1.0, 1.0   # bold + deep enough to survive first-layer squish
 def label(text, cx, z0):
@@ -231,9 +233,9 @@ for i, t in enumerate(KS_LABELS):
     x = KS_CX + (i - (KS_N-1)/2) * KS_PITCH
     body -= label(t, x, ks_z - KS_H/2 - 2.0 - LBL_H)
 
-# fan power switch hole + label
+# master power switch hole + label
 body -= cyl_y(SW_X, SW_Z, SW_HOLE/2, -1, T+1)
-body -= label("FAN", SW_X, SW_Z + 11.5)
+body -= label("PWR", SW_X, SW_Z + 11.5)
 
 # splice joint screw holes
 SPL_HX = (SPLIT_X-4.5, SPLIT_X+15)
