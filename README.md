@@ -11,6 +11,8 @@ A 3D-printable 1U, 19" rack mount for the UniFi **Cloud Gateway Ultra (UCG-Ultra
 
 The design is fully parametric (Python + [manifold3d](https://github.com/elalish/manifold)).
 
+> **Also in this repo:** a modular version with the UCG-Ultra in one half-width module and a UniFi USW-Ultra PoE switch in the other. See [half-modules/](half-modules/).
+
 ![Front grille](docs/front_grille.png)
 ![Right half](docs/right_half.png)
 ![Sections](docs/sections.png)
