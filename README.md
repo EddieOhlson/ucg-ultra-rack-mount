@@ -27,6 +27,8 @@ The STLs are already in print orientation: front face down, turned 45° to fit a
 
 ## Parts list
 
+Amazon links for every part are in [PARTS.md](PARTS.md).
+
 ### Electronics
 | Qty | Part | Notes |
 |---|---|---|
