@@ -5,12 +5,14 @@ A 3D-printable 1U, 19" rack mount for the UniFi **Cloud Gateway Ultra (UCG-Ultra
 - A diamond-mesh front grille with an opening for the gateway's display
 - A bay for a 5015 USB blower fan that pushes air through a channel under the gateway
 - 5 keystone cut-outs (labelled 1, 2, 3, 4, WAN) for user-supplied keystone jacks
+- A front-panel fan on/off switch: a 16 mm illuminated push button that lights when the fan is on
 - Patch-cable zip-tie anchors and a hook-and-loop strap to hold the gateway
 - A two-piece body joined by a splice bracket, so each part fits a 220 × 220 mm bed
 
 The design is fully parametric (Python + [manifold3d](https://github.com/elalish/manifold)).
 
 ![Front grille](docs/front_grille.png)
+![Right half](docs/right_half.png)
 ![Sections](docs/sections.png)
 
 ## Files
@@ -18,7 +20,7 @@ The design is fully parametric (Python + [manifold3d](https://github.com/elalish
 | File | What it is |
 |---|---|
 | `stl/UCG-Ultra_rack_LEFT.stl` | Left half: ear, fan bay, gateway tray, mesh grille |
-| `stl/UCG-Ultra_rack_RIGHT.stl` | Right half: keystones, cable anchors, ear |
+| `stl/UCG-Ultra_rack_RIGHT.stl` | Right half: keystones, fan switch, cable anchors, ear |
 | `stl/UCG-Ultra_rack_SPLICE.stl` | Bracket that joins the two halves |
 | `ucg_rack.py` | Parametric source; re-run to regenerate the STLs into `out/` |
 | `docs/render_sections.py` | Draws section views for checking changes |
@@ -34,6 +36,8 @@ Amazon links for every part are in [PARTS.md](PARTS.md).
 |---|---|---|
 | 1 | 5015 blower fan, 5 V USB | 50 × 50 × 15 mm |
 | 1 | USB-A power source | USB power strip or 5 V charger. The UCG-Ultra has no spare USB port. |
+| 1 | 16 mm latching push button, 5 V LED | Fan on/off switch on the front panel |
+| 1 pair | USB-A male + female screw-terminal adapters | Wire the switch in without soldering (see [PARTS.md](PARTS.md#wiring-the-fan-switch)) |
 | 5 | Cat6 keystone jacks | Standard size |
 | 5 | Cat6 patch cables, 0.3 m (1 ft) | Slim cables bend more easily |
 
@@ -49,7 +53,7 @@ Amazon links for every part are in [PARTS.md](PARTS.md).
 | Qty | Part | Notes |
 |---|---|---|
 | 1 | Zip tie, 200 mm or longer | Holds the fan |
-| 6 | Small zip ties, 4.8 mm wide or narrower | Patch-cable anchors |
+| 7 | Small zip ties, 4.8 mm wide or narrower | Patch-cable anchors |
 | 1 | Hook-and-loop strap, 20 mm wide or less, ~45 cm | Holds the gateway |
 
 ### Printing
@@ -74,11 +78,12 @@ Before the full print, test-print a small slice with the display opening and one
 1. Press the 8 heat-set inserts into the splice bracket (~220–230 °C).
 2. Butt the two halves together, then fit the bracket behind the seam with 8 × M3 × 8 countersunk screws.
 3. Snap the keystone jacks into the right half from behind.
-4. Put the fan in its bay with the outlet facing the gateway, and secure it with the long zip tie. Route its cable through the notch in the rear wall.
-5. Drop the gateway into the tray, display facing the grille, and strap it down.
-6. Connect the patch cables from the gateway's rear ports to the keystones, and tie them to the anchors.
-7. Install the gateway before racking, or leave the U above it empty, because it drops in from the top.
-8. Rack it with M6 screws and washers.
+4. Mount the push button through the 16 mm hole, tighten its nut from behind, and wire it between the screw-terminal adapters as shown in [PARTS.md](PARTS.md#wiring-the-fan-switch).
+5. Put the fan in its bay with the outlet facing the gateway, and secure it with the long zip tie. Route its cable through the notch in the rear wall.
+6. Drop the gateway into the tray, display facing the grille, and strap it down.
+7. Connect the patch cables from the gateway's rear ports to the keystones, and tie them to the anchors.
+8. Install the gateway before racking, or leave the U above it empty, because it drops in from the top.
+9. Rack it with M6 screws and washers.
 
 ## Customising
 
@@ -99,6 +104,7 @@ python3 ucg_rack.py
 | `DISP_W`, `DISP_H`, `DISP_Z` | Display opening size and height |
 | `DIA`, `RIB` | Diamond size and rib width |
 | `FAN`, `FAN_H` | Fan pocket size |
+| `SW_X`, `SW_Z`, `SW_HOLE` | Fan switch position and hole size |
 
 ## Reference dimensions
 

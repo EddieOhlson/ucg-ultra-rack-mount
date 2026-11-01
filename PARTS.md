@@ -11,6 +11,8 @@ Amazon links for everything this mount needs. Prices and stock weren't checked; 
 | 5 | Slim Cat6 patch cables, 1 ft | 28 AWG slim | [MICRO CONNECTORS slim Cat6 1 ft, 5-pack](https://www.amazon.com/clp/B07H2YSN4K) |
 | 5 | Cat6 keystone jacks | Standard keystone | (your own) |
 | 1 | USB-A power source for the fan | USB power strip or 5 V charger | Any |
+| 1 | 16 mm latching push button with 5 V LED (fan on/off) | 16 mm panel hole, **latching / self-locking**, LED rated 5 V (3–6 V) | [16 mm metal push button, self-locking, blue LED, 5 V, with plug](https://www.amazon.com/Button-Waterproof-Self-Locking-Momentary-self-Reset/dp/B0DK3TM64L) |
+| 1 pair | USB-A male + female screw-terminal adapters | Lets you wire the switch in without soldering | [USB-A male & female to 4-pin screw terminal, 1 pair](https://www.amazon.com/Terminal-Solderless-Connector-Converter-Charging/dp/B0DZVVZ2YJ) |
 
 ## Hardware
 
@@ -26,7 +28,7 @@ Amazon links for everything this mount needs. Prices and stock weren't checked; 
 | Qty | Part | Size notes |
 |---|---|---|
 | 1 | Zip tie for the fan | 200 mm or longer |
-| 6 | Small zip ties for the cable anchors | 4.8 mm wide or narrower |
+| 7 | Small zip ties for the cable anchors | 4.8 mm wide or narrower |
 | 1 | Hook-and-loop strap for the gateway | 20 mm wide or less (VELCRO One-Wrap 1/2" works), ~45 cm long |
 
 ## Printing
@@ -35,5 +37,18 @@ Amazon links for everything this mount needs. Prices and stock weren't checked; 
 |---|---|---|
 | ~300 g | PETG filament | One 1 kg spool is plenty |
 | 1 | Soldering iron with a heat-set insert tip | Set to ~220–230 °C for PETG |
+
+## Wiring the fan switch
+
+USB power → **male** screw-terminal adapter → switch → **female** screw-terminal adapter → fan.
+
+| From | To |
+|---|---|
+| Male adapter **VBUS (+5 V, red)** | Switch common terminal |
+| Switch normally-open (NO) terminal | Female adapter **VBUS** and LED **+** |
+| Male adapter **GND (black)** | Female adapter **GND** and LED **−** |
+| D+ / D− | Leave unconnected |
+
+The LED is wired after the switch, so it lights only when the fan is on. When buying, pick the **latching (self-locking)** version with the **5 V** LED. The 12 V and 220 V versions won't light from USB, and the momentary version only runs the fan while you hold the button. Check each listing's options before you buy.
 
 If you use inserts with a different outer diameter, change `INS_R` in `ucg_rack.py` and re-run it to regenerate the splice bracket.
